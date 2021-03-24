@@ -16,8 +16,9 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.layers import Dense,Input,InputLayer,Flatten,Dropout,Conv2D,MaxPooling2D
 from tensorflow.keras.models import Sequential, Model
-from keras.utils import to_categorical
 from keras.callbacks import ModelCheckpoint
+
+import matplotlib.pyplot as plt
 
 VAL_SPLIT = 0.4
 BATCH_SIZE = 10
@@ -25,16 +26,16 @@ CATEGORIES = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
 
 (features, labels) = load_data()
 
-labels = to_categorical(labels)
 
 #split data
 (x_train, x_test, y_train, y_test) = train_test_split(features,labels, test_size =0.2)
 
+
+#--------------------------------------Simple Model Building----------------------------------------------------
+
 #callback
 checkpoint = ModelCheckpoint('weights.h5', monitor = 'val_loss', save_best_only=True)
 callbacks_list = [checkpoint]
-
-#Simple Model Building
 
 input_layer = Input([200,200,3])
 
@@ -58,10 +59,14 @@ model = Model(input_layer, output_layer)
 
 model.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
-model.fit(x_train, y_train, validation_split = VAL_SPLIT, epochs = 4, batch_size =BATCH_SIZE,callbacks=callbacks_list)
+history = model.fit(x_train, y_train, validation_split = VAL_SPLIT, epochs = 4, batch_size =BATCH_SIZE,callbacks=callbacks_list)
 
 #evaluate the model
 model.evaluate(x_test,y_test)
+
+
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
 
 #loading the stored parameters:
 model.load_weights('weights.h5')
