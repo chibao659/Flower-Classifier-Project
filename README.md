@@ -2,7 +2,6 @@
  
 ## 0. Project Proposal:
 
-TEAM: Taja Castilleja, Vaishnavi Krishnan, Christian Martin, Chi Bao, and Shainan Agrawal
 
 •	Introduce a hypothetical business scenario.
 We are a startup company that is developing an app where users take pictures of plants and the app will identify the plants using machine learning. We have premium and free services, where the premium service includes expanded plant image recognition. For this project, we will focus on the free service where plant recognition will be limited to specific types of plants.
