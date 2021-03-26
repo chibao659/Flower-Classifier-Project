@@ -10,7 +10,7 @@ We are a startup company that is developing an app where users take pictures of 
 We will train the machine learning algorithm with datasets of plant images to identify species of plants after taking a photo. This removes the effort and time to research plant information and type online. The app will use supervised machine learning since in the end the user knows the plant type, and the algorithm will choose the best match using statistical significance.
 
 •	Describe the data you may use as input to your machine learning model.
-We will be using a dataset that includes images of flowers classified into many groups. In total, there are 102 flower categories where each category has 100 images or more. We may gather more photos to train the machine learning algorithm.
+We will be using a dataset that includes images of flowers classified into many groups. In total, there are 5 flower categories. We may gather more photos to train the machine learning algorithm.
 
 •	List/describe the data sources you may obtain/use for your project.
 We will use datasets of images collected by software engineers and related experts in the field of plant image recognition. The data sources are not limited to but may include:
